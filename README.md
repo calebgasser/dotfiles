@@ -1,3 +1,3 @@
 # Dotfiles
 
-All my dot files by system.
+All my dot files.
