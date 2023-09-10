@@ -52,9 +52,24 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver = {
+  #  enable = true;
+  #  displayManager = {
+  #    sddm.enable = true;
+  #    defaultSession = "none+awesome";
+  #  };
+
+  #  windowManager.awesome = {
+  #    enable = true;
+  #    luaModules = with pkgs.luaPackages; [
+  #      luarocks # is the package manager for lua modules
+  #    ];
+  #  };
+
+  #};
 
   # Enable the KDE Plasma Desktop Environment.
+  services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -135,8 +150,8 @@
       	alias v='nvim'
       	alias vi='nvim'
     	alias vim='nvim'
-    	alias ls='exa'
-    	alias tree='exa -T'
+    	alias ls='eza'
+    	alias tree='eza -T'
     	alias gst='git status'
   '';
 
@@ -146,8 +161,8 @@
       v = "nvim";
       vi = "nvim";
       vim = "nvim";
-      ls = "exa";
-      tree = "exa -T";
+      ls = "eza";
+      tree = "eza -T";
       gst = "git status";
     };
   };

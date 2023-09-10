@@ -51,7 +51,7 @@
     starship
     bat
     fzf
-    exa
+    eza
     python3
     gnupg
     pinentry_qt
@@ -60,8 +60,17 @@
     nix-index
     act
   ];
- 
+
   ##### Programs #####
+  programs.rofi = {
+    enable = true;
+    font = "JetBrainsMono Nerd Front";
+  };
+
+  programs.eww = {
+    enable = true;
+    configDir = ./config/eww;
+  };
 
   programs.git = {
     enable = true;
@@ -80,7 +89,7 @@
   };
 
   ##### Configs/Dotfiles #####
-  
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
