@@ -40,6 +40,7 @@
     cargo
     rustc
     rustfmt
+    bun
     rust-analyzer
     elixir
     git-secrets
