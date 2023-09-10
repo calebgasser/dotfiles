@@ -21,6 +21,17 @@
           shiftwidth = 2;
           colorcolumn = "80";
         };
+        extraConfigLua = ''
+          	  local Terminal  = require('toggleterm.terminal').Terminal
+          	  local lazygit = Terminal:new({
+		      cmd = "lazygit",
+		      hidden = true,
+		      direction = "float",
+		    })
+		  function _lazygit_toggle()
+		    lazygit:toggle()
+		  end
+          	'';
         clipboard = {
           providers.xclip.enable = true;
           register = "unnamedplus";
@@ -33,6 +44,12 @@
             action = "<Esc>";
           };
 
+          # Lazygit
+          normalVisualOp."<leader>g" = {
+            silent = true;
+            action = "<Cmd>lua _lazygit_toggle()<CR>";
+          };
+
           # Remap cut
           normalVisualOp."x" = {
             silent = true;
@@ -40,9 +57,9 @@
           };
 
           # Toggle open terminal
-          terminal."kj" = {
+          terminal."<Esc>" = {
             silent = true;
-            action = "<C-\\><C-n>:ToggleTerm<Cr>";
+            action = "<C-\\><C-n>:q<CR>";
           };
 
           normalVisualOp."<leader>tt" = {
@@ -197,9 +214,9 @@
             pyright = {
               enable = true;
             };
-            rnix-lsp = {
-              enable = true;
-            };
+            #rnix-lsp = {
+            #  enable = true;
+            #};
             rust-analyzer = {
               enable = true;
             };
@@ -238,6 +255,52 @@
 
         plugins.nvim-cmp = {
           enable = true;
+	  mapping = {
+	    "<CR>" = "cmp.mapping.confirm({ select = true })";
+	    "<Tab>" = {
+	      action = ''
+		function(fallback)
+		  if cmp.visible() then
+		    cmp.select_next_item()
+		  elseif luasnip.expandable() then
+		    luasnip.expand()
+		  elseif luasnip.expand_or_jumpable() then
+		    luasnip.expand_or_jump()
+		  elseif check_backspace() then
+		    fallback()
+		  else
+		    fallback()
+		  end
+		end
+	      '';
+	      modes = [
+		"i"
+		"s"
+	      ];
+	    };
+	    "<S-Tab>" = {
+	      action = ''
+		function(fallback)
+		  if cmp.visible() then
+		    cmp.select_prev_item()
+		  elseif luasnip.expandable() then
+		    luasnip.expand()
+		  elseif luasnip.expand_or_jumpable() then
+		    luasnip.expand_or_jump()
+		  elseif check_backspace() then
+		    fallback()
+		  else
+		    fallback()
+		  end
+		end
+	      '';
+	      modes = [
+		"i"
+		"s"
+	      ];
+	    };
+	  };
+
           # List of sources:
           # https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
           sources = [

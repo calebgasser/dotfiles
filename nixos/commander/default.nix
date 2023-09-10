@@ -153,6 +153,7 @@
     	alias ls='eza'
     	alias tree='eza -T'
     	alias gst='git status'
+	alias lg='lazygit'
   '';
 
   programs.fish = {
@@ -164,6 +165,7 @@
       ls = "eza";
       tree = "eza -T";
       gst = "git status";
+      lg = "lazygit";
     };
   };
   # Some programs need SUID wrappers, can be configured further or are
