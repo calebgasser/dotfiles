@@ -1,6 +1,5 @@
 {
   description = "A very basic flake";
-
   inputs.nixvim = {
     url = "github:nix-community/nixvim";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -90,7 +89,7 @@
           };
 
           # Close current buffer
-          normalVisualOp."<leader>x" = {
+          normal."<leader>x" = {
             silent = true;
             action = ":Bdelete<CR>";
           };
@@ -159,6 +158,7 @@
         plugins.bufferline = {
           enable = true;
         };
+
 
         plugins.lsp = {
           enable = true;
@@ -251,17 +251,12 @@
           enable = true;
 	  mapping = {
 	    "<CR>" = "cmp.mapping.confirm({ select = true })";
+	    "<C-e>" = "cmp.mapping.close()";
 	    "<Tab>" = {
 	      action = ''
 		function(fallback)
 		  if cmp.visible() then
 		    cmp.select_next_item()
-		  elseif luasnip.expandable() then
-		    luasnip.expand()
-		  elseif luasnip.expand_or_jumpable() then
-		    luasnip.expand_or_jump()
-		  elseif check_backspace() then
-		    fallback()
 		  else
 		    fallback()
 		  end
@@ -277,12 +272,6 @@
 		function(fallback)
 		  if cmp.visible() then
 		    cmp.select_prev_item()
-		  elseif luasnip.expandable() then
-		    luasnip.expand()
-		  elseif luasnip.expand_or_jumpable() then
-		    luasnip.expand_or_jump()
-		  elseif check_backspace() then
-		    fallback()
 		  else
 		    fallback()
 		  end
@@ -301,7 +290,6 @@
             { name = "nvim_lsp"; }
             { name = "nvim_lsp_document_symbol"; }
             { name = "nvim_lsp_signature_help"; }
-            { name = "luasnip"; }
             { name = "snippy"; }
             { name = "calc"; }
             { name = "spell"; }
