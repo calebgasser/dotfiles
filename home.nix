@@ -37,6 +37,11 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     husky
+    cargo
+    rustc
+    rustfmt
+    rust-analyzer
+    elixir
     git-secrets
     lazygit
     glxinfo

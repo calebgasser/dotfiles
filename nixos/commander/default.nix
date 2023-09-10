@@ -167,6 +167,11 @@
       gst = "git status";
       lg = "lazygit";
     };
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+      fish_vi_key_bindings # Enable vi mode
+      bind -M insert kj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end" # 
+    '';
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -50,12 +50,6 @@
             action = "<Cmd>lua _lazygit_toggle()<CR>";
           };
 
-          # Remap cut
-          normalVisualOp."x" = {
-            silent = true;
-            action = "<Cmd>call snippy#cut_text(mode(), v:true)<CR>";
-          };
-
           # Toggle open terminal
           terminal."<Esc>" = {
             silent = true;
