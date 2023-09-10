@@ -68,6 +68,38 @@
   ];
 
   ##### Programs #####
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    enableNushellIntegration = true;
+  };
+
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      v = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+      ls = "eza";
+      tree = "eza -T";
+      gst = "git status";
+      lg = "lazygit";
+    };
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+      fish_vi_key_bindings # Enable vi mode
+      bind -M insert kj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end" # 
+    '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+  };
+
   programs.rofi = {
     enable = true;
     font = "JetBrainsMono Nerd Front";
