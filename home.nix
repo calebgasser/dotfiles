@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -36,19 +36,45 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    husky
+    ### Language servers ###
+    rust-analyzer
+    nodePackages.typescript-language-server
+    nodePackages.vscode-css-languageserver-bin
+    nodePackages.svelte-language-server
+    nodePackages.yaml-language-server
+    nodePackages.bash-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    python311Packages.python-lsp-server
+    taplo # TOML lsp
+    marksman # Markdown lsp
+    lua-language-server # Lua lsp
+    gopls # Go language server
+    clang-tools
+    clang
+    cmake-language-server
+    terraform-ls
+    nil
+    #######################
+
+    ### Programing Languages ###
     cargo
     rustc
     rustfmt
     bun
-    rust-analyzer
+    go
     elixir
+    zig
+    ############################
+
+    obsidian
+    llvm
+    lldb
+    husky
     git-secrets
     lazygit
     glxinfo
     kitty
     spotify
-    obsidian
     zellij
     ripgrep
     du-dust
@@ -68,6 +94,20 @@
   ];
 
   ##### Programs #####
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "catppuccin_mocha";
+      editor = {
+        line-number = "relative";
+        lsp.display-messages = true;
+      };
+      keys.insert = {
+        k = { j = "normal_mode"; };
+      };
+    };
+  };
+
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
