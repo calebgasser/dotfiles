@@ -64,6 +64,8 @@
     go
     elixir
     zig
+    ocaml
+    ocamlPackages.findlib
     ############################
 
     obsidian
