@@ -98,6 +98,12 @@
   ##### Programs #####
   programs.helix = {
     enable = true;
+    languages = { language = [
+      {
+        name = "rust";
+        auto-format = true;
+      }
+    ];};
     settings = {
       theme = "catppuccin_mocha";
       editor = {
