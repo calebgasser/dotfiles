@@ -50,7 +50,6 @@
     lua-language-server # Lua lsp
     gopls # Go language server
     clang-tools
-    clang
     cmake-language-server
     terraform-ls
     nil
@@ -64,8 +63,13 @@
     go
     elixir
     zig
+    gcc
+    ## Ocaml
     ocaml
     ocamlPackages.findlib
+    ocamlPackages.utop
+    ocamlPackages.ocaml-lsp
+    dune_3
     ############################
 
     obsidian
