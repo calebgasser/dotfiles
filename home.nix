@@ -73,6 +73,10 @@
     ############################
 
     obsidian
+    gh
+    openjdk
+    graphviz
+    gnuplot
     llvm
     lldb
     husky
@@ -92,7 +96,7 @@
     eza
     python3
     gnupg
-    pinentry_qt
+    pinentry-qt
     btop
     xclip
     nix-index
