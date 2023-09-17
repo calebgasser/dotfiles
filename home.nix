@@ -73,6 +73,7 @@
     ############################
 
     obsidian
+    fd
     gh
     openjdk
     graphviz
@@ -102,6 +103,18 @@
     nix-index
     act
   ];
+
+  ##### Desktop Entries #####
+  xdg.desktopEntries = {
+    obsidian = {
+      name = "Obsidian";
+      genericName = "obisidan";
+      exec = "obsidian --disable-gpu";
+      terminal = false;
+      categories = ["Application"];
+    };
+  };
+  ###########################
 
   ##### Programs #####
   programs.helix = {
