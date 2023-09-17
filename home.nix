@@ -57,6 +57,7 @@
 
     ### Programing Languages ###
     cargo
+    cargo-expand
     rustc
     rustfmt
     bun
