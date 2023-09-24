@@ -76,6 +76,7 @@
     ############################
 
     obsidian
+    arduino
     fd
     gh
     openjdk
