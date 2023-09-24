@@ -53,10 +53,12 @@
     cmake-language-server
     terraform-ls
     nil
+    zls # zig language server
     #######################
 
     ### Programing Languages ###
     cargo
+    clippy
     cargo-expand
     rustc
     rustfmt
@@ -131,6 +133,7 @@
       editor = {
         line-number = "relative";
         lsp.display-messages = true;
+        bufferline = "always";
       };
       keys.insert = {
         k = { j = "normal_mode"; };
