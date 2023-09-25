@@ -58,6 +58,7 @@
 
     ### Programing Languages ###
     cargo
+    cargo-flamegraph
     clippy
     cargo-expand
     rustc
