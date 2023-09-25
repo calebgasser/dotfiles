@@ -77,6 +77,8 @@
     ############################
 
     obsidian
+    onefetch
+    freshfetch
     arduino
     fd
     gh
