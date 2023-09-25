@@ -159,6 +159,7 @@
       tree = "eza -T";
       gst = "git status";
       lg = "lazygit";
+      img = "kitty +kitten icat";
     };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
