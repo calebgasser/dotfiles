@@ -81,6 +81,12 @@
     freshfetch
     arduino
     fd
+    minikube
+    k3s
+    k3d
+    helm
+    docker
+    jq
     gh
     openjdk
     graphviz
