@@ -49,6 +49,13 @@
          ./nixos/devone
        ];
      };
+
+     x220 = lib.nixosSystem {
+       inherit system;
+       modules = [
+         ./nixos/x220
+       ];
+     };
     };
 
     homeManagerConfigurations = {
