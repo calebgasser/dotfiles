@@ -80,6 +80,7 @@
     onefetch
     freshfetch
     arduino
+    flameshot
     fd
     minikube
     k3s
