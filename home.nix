@@ -81,6 +81,7 @@
     freshfetch
     arduino
     flameshot
+    logisim
     fd
     minikube
     k3s
