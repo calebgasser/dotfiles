@@ -6,6 +6,7 @@
   home.homeDirectory = "/home/cgasser";
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ (import ./turso)];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -80,6 +81,8 @@
     onefetch
     freshfetch
     arduino
+    avrdude
+    turso-cli
     flameshot
     logisim
     fd
