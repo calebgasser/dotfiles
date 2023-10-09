@@ -78,6 +78,7 @@
     ############################
 
     obsidian
+    logseq
     onefetch
     freshfetch
     arduino
@@ -128,6 +129,13 @@
       name = "Obsidian";
       genericName = "obisidan";
       exec = "obsidian --disable-gpu";
+      terminal = false;
+      categories = ["Application"];
+    };
+    logseq = {
+      name = "Logseq";
+      genericName = "logseq";
+      exec = "logseq --disable-gpu";
       terminal = false;
       categories = ["Application"];
     };
