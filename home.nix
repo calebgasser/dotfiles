@@ -72,6 +72,7 @@
     gcc
     ## Ocaml
     ocaml
+    opam
     ocamlPackages.findlib
     ocamlPackages.utop
     ocamlPackages.ocaml-lsp
@@ -184,6 +185,7 @@
       img = "kitty +kitten icat";
     };
     interactiveShellInit = ''
+      eval (opam env)
       set fish_greeting # Disable greeting
       fish_vi_key_bindings # Enable vi mode
       bind -M insert kj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end" # 
