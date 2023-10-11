@@ -55,6 +55,7 @@
     terraform-ls
     nil
     zls # zig language server
+    elixir-ls # elixir langauge server
     #######################
 
     ### Programing Languages ###
