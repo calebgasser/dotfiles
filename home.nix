@@ -144,7 +144,11 @@
   };
   ###########################
 
+  ##### Packages #####
+  ####################
+
   ##### Programs #####
+  programs.opam.enableFishIntegration = true;
   programs.helix = {
     enable = true;
     languages = { language = [
