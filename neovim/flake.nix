@@ -14,14 +14,17 @@
     }:
     let
       config = {
+	type = "lua";
+
         options = {
           number = true;
           relativenumber = true;
           shiftwidth = 2;
           colorcolumn = "80";
         };
+
         extraConfigLua = ''
-          	  local Terminal  = require('toggleterm.terminal').Terminal
+          	  local Terminal = require('toggleterm.terminal').Terminal
           	  local lazygit = Terminal:new({
 		      cmd = "lazygit",
 		      hidden = true,
@@ -31,22 +34,44 @@
 		    lazygit:toggle()
 		  end
           	'';
+
         clipboard = {
           providers.xclip.enable = true;
           register = "unnamedplus";
         };
+
         globals.mapleader = " ";
+
         maps = {
           # Escape using "kj"
           insert."kj" = {
             silent = true;
             action = "<Esc>";
           };
+          
+	  # End of line
+	  normalVisualOp."gl" = {
+	    silent = true;
+	    action = "$";
+	  };
+
+	  # Start of line
+	  normalVisualOp."gh" = {
+	    silent = true;
+	    action = "^";
+	  };
+
+	  # Open file browser
+          normal."<leader>fb" = {
+	    silent = true;
+	    action = ":lua vim.cmd('Ex')<CR>";
+	  };
+
 
           # Lazygit
           normalVisualOp."<leader>g" = {
             silent = true;
-            action = "<Cmd>lua _lazygit_toggle()<CR>";
+            action = ":lua _lazygit_toggle()<CR>";
           };
 
           # Toggle open terminal
@@ -235,6 +260,10 @@
           };
         };
 
+	plugins.harpoon = {
+	  enable = true;
+	};
+
         plugins.lsp-format = {
           enable = true;
         };
@@ -340,6 +369,9 @@
       nvim = nixvim'.makeNixvim config;
     in
     {
+      pkgs.mkShell = {
+	buildInputs = [nvim];
+      };
       packages = {
         inherit nvim;
         default = nvim;

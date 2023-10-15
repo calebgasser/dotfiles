@@ -82,6 +82,7 @@
     obsidian
     logseq
     onefetch
+    postgresql
     freshfetch
     arduino
     avrdude
