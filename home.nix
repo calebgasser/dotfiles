@@ -83,6 +83,7 @@
     logseq
     onefetch
     postgresql
+    qflipper
     freshfetch
     arduino
     avrdude
