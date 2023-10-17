@@ -81,7 +81,6 @@
 
     obsidian
     logseq
-    discord
     anki
     onefetch
     postgresql
@@ -145,6 +144,13 @@
       terminal = false;
       categories = ["Application"];
     };
+    # discord = {
+    #   name = "Discord";
+    #   genericName = "discord";
+    #   exec = "discord --disable-gpu";
+    #   terminal = false;
+    #   categories = ["Application"];
+    # };
   };
   ###########################
 
