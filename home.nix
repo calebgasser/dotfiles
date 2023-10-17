@@ -81,6 +81,8 @@
 
     obsidian
     logseq
+    discord
+    anki
     onefetch
     postgresql
     qflipper
