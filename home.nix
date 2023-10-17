@@ -65,6 +65,7 @@
     cargo-expand
     rustc
     rustfmt
+    erlang
     bun
     go
     elixir
