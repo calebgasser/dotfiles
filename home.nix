@@ -80,6 +80,8 @@
     dune_3
     ############################
 
+    wireguard-tools
+    pre-commit
     obsidian
     logseq
     anki
@@ -147,6 +149,14 @@
       terminal = false;
       categories = ["Application"];
     };
+    livebook = {
+      name = "Livebook";
+      genericName = "livebook";
+      exec = "firefox http://localhost:8080";
+      icon = "firefox";
+      terminal = false;
+      categories = ["Application"];
+    };
     # discord = {
     #   name = "Discord";
     #   genericName = "discord";
@@ -157,6 +167,22 @@
   };
   ###########################
 
+  ##### System Services #####
+  systemd.user.services.livebook = {
+    Unit = {
+      Description = "Livebook server";
+    };
+    Install = {
+      WantedBy = [ "multi-user.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.writeShellScript "livebook-server" ''
+        #!/run/current-system/sw/bin/bash
+        livebook server
+      ''}";
+    };
+  };
+  ###########################
   ##### Packages #####
   ####################
 
