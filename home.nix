@@ -84,8 +84,9 @@
     logseq
     anki
     onefetch
-    podman
-    postgresql
+    livebook
+    flyctl
+    podman-compose
     qflipper
     freshfetch
     arduino
