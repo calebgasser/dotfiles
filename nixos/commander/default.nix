@@ -18,6 +18,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common
     ];
 
   # Bootloader.
@@ -107,62 +108,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cgasser = {
-    isNormalUser = true;
-    description = "Caleb Gasser";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      firefox
-      kate
-      #  thunderbird
-    ];
-  };
-
-  programs.fish.enable = true;
-
-  # Enable flakes
-  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Enable auto optimiztion for the store
-  nix.settings.auto-optimise-store = true;
-
-  # Garbage collection can be automated 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Docker install with rootless
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-  ];
-
-  environment.interactiveShellInit = ''
-      	alias v='nvim'
-      	alias vi='nvim'
-    	alias vim='nvim'
-    	alias ls='eza'
-    	alias tree='eza -T'
-    	alias gst='git status'
-	alias lg='lazygit'
-  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
