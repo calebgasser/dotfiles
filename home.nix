@@ -78,6 +78,8 @@
     ocamlPackages.utop
     ocamlPackages.ocaml-lsp
     dune_3
+    ## Haskell
+    ghc
     ############################
 
     wireguard-tools
