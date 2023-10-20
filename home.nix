@@ -84,6 +84,7 @@
     pre-commit
     obsidian
     logseq
+    espeak
     anki
     onefetch
     livebook
