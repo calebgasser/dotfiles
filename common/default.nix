@@ -14,11 +14,18 @@
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "scratchdb" ];
+    ensureDatabases = [ "postgres" ];
     authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
+      #type database  DBuser  Address        auth-method
+      local all       all                    trust
+      host  all       all     127.0.0.1/32   trust
+      
     '';
+    # initialScript = pkgs.writeText "backend-initScript" ''
+    #   CREATE ROLE nixtest  WITH LOGIN PASSWORD 'nixtest' CREATEDB:
+    #   CREATE DATABASE nixtest;
+    #   GRANT ALL PRIVILEGES ON DATABASE nixtest TO nixtest;
+    # '';
   };
 
   ##### End Programs #####
