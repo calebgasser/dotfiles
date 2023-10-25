@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/cgasser";
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ (import ./turso)];
+  # nixpkgs.overlays = [ (import ./turso)]; # Currently broken
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -85,6 +85,7 @@
     wireguard-tools
     pre-commit
     obsidian
+    mdbook
     logseq
     espeak
     anki
