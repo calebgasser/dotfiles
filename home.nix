@@ -88,6 +88,7 @@
     mdbook
     logseq
     espeak
+    dig
     anki
     onefetch
     livebook
