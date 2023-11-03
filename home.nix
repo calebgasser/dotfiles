@@ -90,6 +90,7 @@
     espeak
     dig
     anki
+    gnumake
     onefetch
     livebook
     flyctl

@@ -19,7 +19,7 @@
       #type database  DBuser  Address        auth-method
       local all       all                    trust
       host  all       all     127.0.0.1/32   trust
-      
+      host  all       all     ::1/125        md5
     '';
     # initialScript = pkgs.writeText "backend-initScript" ''
     #   CREATE ROLE nixtest  WITH LOGIN PASSWORD 'nixtest' CREATEDB:
@@ -52,6 +52,11 @@
     git
   ];
 
+  environment.sessionVariables = {
+    PATH = [
+      "$HOME/.mix/escripts"
+    ];
+  };
   # Enable auto optimiztion for the store
   nix.settings.auto-optimise-store = true;
 
