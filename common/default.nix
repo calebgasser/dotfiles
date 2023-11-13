@@ -11,7 +11,7 @@
       };
     };
   };
-
+  services.tailscale.enable = true;
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "postgres" ];

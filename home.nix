@@ -59,8 +59,10 @@
     #######################
 
     ### Programing Languages ###
+    nodejs
     cargo
     cargo-flamegraph
+    ruby
     clippy
     cargo-expand
     rustc
@@ -88,12 +90,14 @@
     mdbook
     logseq
     espeak
+    tailscale
     dig
     anki
     gnumake
     onefetch
     livebook
     flyctl
+    kafkactl
     podman-compose
     qflipper
     freshfetch
