@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/cgasser";
 
   nixpkgs.config.allowUnfree = true;
-  # nixpkgs.overlays = [ (import ./turso)]; # Currently broken
+  #nixpkgs.overlays = [ (import ./overlays/precommit )]; # Currently broken
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -91,6 +91,7 @@
     logseq
     espeak
     tailscale
+    inotify-tools
     dig
     anki
     gnumake
